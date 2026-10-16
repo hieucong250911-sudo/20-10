@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Women's Day 🌸</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffe4ef, #fff0f5, #ffd6e7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    color: #8b3158;
+    padding: 25px 14px;
+}
+
+.card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 480px;
+    background: rgba(255,255,255,0.82);
+    border: 2px solid white;
+    border-radius: 28px;
+    padding: 32px 22px;
+    text-align: center;
+    box-shadow: 0 12px 40px #d76c9633;
+    animation: appear 1s ease;
+}
+
+h1 {
+    color: #d94f87;
+    font-size: 30px;
+    margin: 12px 0;
+}
+
+.subtitle {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #99536f;
+}
+
+.flower {
+    font-size: 60px;
+    animation: sway 2s infinite ease-in-out;
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+    padding: 14px 22px;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #ff75a9, #e84f8c);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px #e84f8c44;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+#letter {
+    display: none;
+    margin-top: 22px;
+    padding: 18px;
+    background: #fff0f6;
+    border-radius: 18px;
+    line-height: 1.8;
+    animation: appear 0.7s ease;
+}
+
+footer {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #b77a94;
+}
+
+.petal {
+    position: fixed;
+    top: -30px;
+    z-index: 1;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(600deg);
+        opacity: 0;
+    }
+}
+
+@keyframes sway {
+    0%, 100% { transform: rotate(-8deg); }
+    50% { transform: rotate(8deg); }
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 380px) {
+    h1 { font-size: 25px; }
+    .card { padding: 26px 17px; }
+}
+</style>
+</head>
+
+<body>
+
+<main class="card">
+    <div class="flower">🌷</div>
+
+    <h1>Happy Women's Day!</h1>
+
+    <p class="subtitle">
+        Gửi những lời chúc tốt đẹp nhất<br>
+        đến cô giáo và các bạn nữ lớp mình 💗
+    </p>
+
+    <div style="font-size: 32px; margin: 18px 0;">
+        🌸 💐 🌸
+    </div>
+
+    <p class="subtitle">
+        Chúc mọi người luôn vui vẻ, xinh tươi,
+        hạnh phúc và gặp thật nhiều điều may mắn!
+    </p>
+
+    <button onclick="openLetter()">
+        💌 Nhấn để mở lời chúc
+    </button>
+
+    <div id="letter">
+        <h2>Gửi những bông hoa của lớp 🌹</h2>
+        Chúc mọi người có một ngày 20/10 thật vui,
+        luôn tự tin, học tập tốt và giữ mãi nụ cười
+        trên môi. Mong rằng mỗi ngày đến lớp đều
+        có thật nhiều kỷ niệm đẹp, tiếng cười và
+        những điều đáng nhớ.
+
+        <p><b>Chúc mừng ngày 20/10! 💗</b></p>
+        <p>Thân gửi từ một thành viên của lớp ✨</p>
+    </div>
+
+    <footer>
+        Made with 💗 for October 20th
+    </footer>
+</main>
+
+<script>
+function openLetter() {
+    const letter = document.getElementById("letter");
+
+    if (letter.style.display === "block") {
+        letter.style.display = "none";
+    } else {
+        letter.style.display = "block";
+    }
+}
+
+function makeFlower() {
+    const flower = document.createElement("div");
+    flower.className = "petal";
+
+    const flowers = ["🌸", "🌷", "🌺", "💮", "💕"];
+    flower.textContent =
+        flowers[Math.floor(Math.random() * flowers.length)];
+
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.fontSize = (14 + Math.random() * 18) + "px";
+    flower.style.animationDuration = (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(flower);
+
+    setTimeout(() => flower.remove(), 9000);
+}
+
+setInterval(makeFlower, 500);
+</script>
+
+</body>
+</html>
